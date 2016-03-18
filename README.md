@@ -4,14 +4,15 @@
 
 - vim — configuration for vim and gvim.
 - zsh — need `oh-my-zsh` installed.
-- ycm_global_config — default You Complete Me flags for c++ in OSX.
 
-##Usage
+## Usage
 
-Using GNU Stow to symlink them to `~/` directory
+Using [GNU Stow][gnu-stow] to symlink them to `~/` directory.
 
 ```shell
-git clone <url> ~/.dotfiles
+git clone https://github.com/ladrift/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 stow <package-name>
 ```
+
+[gnu-stow]: http://www.gnu.org/software/stow/	"GNU Stow"
