@@ -1,0 +1,10 @@
+# This is Git's per-user configuration file.
+[core]
+# Please adapt and uncomment the following lines:
+#	user = ladrift
+#	email = cxfyzy@gmail.com
+[core]
+	editor = vim
+[user]
+	name = ladrift
+	email = cxfyzy@gmail.com

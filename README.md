@@ -2,8 +2,12 @@
 
 ## Packages
 
-- vim — configuration for vim and gvim.
-- zsh — need `oh-my-zsh` installed.
+- vim       configuration for vim and gvim
+- zsh       need `oh-my-zsh` installed
+- aria2     aria2 downloader
+- gdb       some custom commands for `gdb`
+- tmux      custom shortcut prefix and etc...
+- git       git username, email and default editor config
 
 ## Usage
 
