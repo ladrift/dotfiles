@@ -145,7 +145,4 @@ eval `/usr/libexec/path_helper -s`
 ## add Golang path
 export GOPATH=$HOME/Development/golang_work
 
-## tree hidden files
-alias tree="tree -a"
-
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
