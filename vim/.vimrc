@@ -203,6 +203,7 @@ let g:ycm_confirm_extra_conf = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 " Ycm Fixit feature
 nnoremap <c-h> :YcmCompleter FixIt<CR>
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
 """"""""""""""""""""
 "" a.vim settings
@@ -246,3 +247,6 @@ autocmd FileType python noremap <C-p> :call Flake8()<CR>
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 " c++ indent
 autocmd Filetype cpp setlocal ts=2 sts=2 sw=2
+
+" clang-format in vim
+map <C-K> :%pyf /usr/local/Cellar/clang-format/2016-03-08/share/clang/clang-format.py<cr>
