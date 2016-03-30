@@ -1,87 +1,75 @@
-""""""""""""""""""""
-"" Vundle settings "
-""""""""""""""""""""
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" Section for `vim-plug`
+call plug#begin('~/.vim/bundle')
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" Make sure you use single quotes
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+"Plug 'junegunn/vim-easy-align'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-" Plugin 'user/L9', {'name': 'newL9'}
+" Any valid git URL is allowed
+"Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
-" All of your Plugins must be added before the following line
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-sensible'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-surround'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'mattn/emmet-vim'
+" Group dependencies, vim-snippets depends on ultisnips
+"Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+" On-demand loading
+"Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+"Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+
+" Using a non-master branch
+"Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+
+" Plugin options
+"Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+
+" Plugin outside ~/.vim/plugged with post-update hook
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+" Unmanaged plugin (manually installed and updated)
+"Plug '~/my-prototype-plugin'
+
+" Add plugins to &runtimepath
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sensible'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'tpope/vim-surround'
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'mattn/emmet-vim', { 'for': 'html' }
 
 "" snippet plugins
 " the engine
-Plugin 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 " snippets
-Plugin 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 
 "" YouCompleteMe
-Plugin 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 "" *.c --> *.h
-Plugin 'a.vim'
+Plug 'a.vim', { 'for': ['c', 'cpp'] }
 "" Auto Pairs
-Plugin 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 "" Python 3 syntax highlight
 "Plugin 'hdima/python-syntax'
 "" Flake8
-Plugin 'nvie/vim-flake8'
+Plug 'nvie/vim-flake8', { 'for': 'python' }
 "" Indention for pep8
-Plugin 'hynek/vim-python-pep8-indent'
+Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 "" vim-latex: tools suite
-Plugin 'vim-latex/vim-latex'
+Plug 'vim-latex/vim-latex', { 'for': 'tex' }
 "" fcitx-vim-osx: Restore input method state
-Plugin 'CodeFalling/fcitx-vim-osx'
-"" seoul256 colorscheme 
-"Plugin 'junegunn/seoul256.vim'
+Plug 'CodeFalling/fcitx-vim-osx'
+"" seoul256 colorscheme
+Plug 'junegunn/seoul256.vim'
 "" vim-javascript
-Plugin 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 "" c++ enhanced highlight
-Plugin 'octol/vim-cpp-enhanced-highlight'
+Plug 'octol/vim-cpp-enhanced-highlight'
 "" cpp11 syntax
 "Plugin 'Cpp11-Syntax-Support'
 "" STL syntax
-Plugin 'Mizuchi/STL-Syntax'
+Plug 'Mizuchi/STL-Syntax', { 'for': 'cpp' }
+call plug#end()
 
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 " enable syntax highlighting
 syntax enable
 " show line numbers with relative number
@@ -98,12 +86,27 @@ set shiftwidth=4
 set shiftround
 " take 4 spaces as a tab
 set softtabstop=4
-" show a visual line under the cursor's current line 
+" show a visual line under the cursor's current line
 "set cursorline
 " ingnore case in command completion and search
 set ignorecase
 " set for highligt searched text
 set hlsearch
+
+"" FFmpeg Code Formatting
+" indentation rules for FFmpeg: 4 spaces, no tabs
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set cindent
+set cinoptions=(0
+" Allow tabs in Makefiles.
+autocmd FileType make,automake set noexpandtab shiftwidth=8 softtabstop=8
+" Trailing whitespace and tabs are forbidden, so highlight them.
+highlight ForbiddenWhitespace ctermbg=red guibg=red
+match ForbiddenWhitespace /\s\+$\|\t/
+" Do not highlight spaces at the end of line while typing on that line.
+autocmd InsertEnter * match ForbiddenWhitespace /\t\|\s\+\%#\@<!$/
 
 " python.vim options
 " enable all Python syntax highlighting features
@@ -111,6 +114,7 @@ let python_highlight_all = 1
 " c.vim options
 " make *.h using c highlight
 let c_syntax_for_h = 1
+" make compound literals in parenthese not error
 let c_no_curly_error = 1
 
 " move vertically by visual line
@@ -139,27 +143,25 @@ function! TwiddleCase(str)
 endfunction
 vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
 
-" set background on iterm profile
-if $ITERM_PROFILE == 'working'
-    set background=dark
-else
-    set background=light
-endif
-
 
 """"""""""""""""""
 "" tmux settings "
 """"""""""""""""""
 " reshape cursor in tmux according to mode
-if exists('$ITERM_PROFILE')
-    if exists('$TMUX') 
-        let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-        let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-    else
-        let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-        let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+if has('nvim')
+    let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+else
+    if exists('$ITERM_PROFILE')
+        if exists('$TMUX')
+            let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+            let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+        else
+            let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+            let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+        endif
     endif
-end
+endif
 
 
 """""""""""""""""""""
