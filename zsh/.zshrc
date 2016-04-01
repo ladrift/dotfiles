@@ -146,5 +146,3 @@ eval `/usr/libexec/path_helper -s`
 export GOPATH=$HOME/Development/golang_work
 
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
-## Using neovim replace vim
-alias vim=nvim

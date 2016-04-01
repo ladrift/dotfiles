@@ -63,7 +63,7 @@ Plug 'junegunn/seoul256.vim'
 "" vim-javascript
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 "" c++ enhanced highlight
-Plug 'octol/vim-cpp-enhanced-highlight'
+"Plug 'octol/vim-cpp-enhanced-highlight'
 "" cpp11 syntax
 "Plugin 'Cpp11-Syntax-Support'
 "" STL syntax
@@ -205,7 +205,7 @@ let g:ycm_confirm_extra_conf = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 " Ycm Fixit feature
 nnoremap <c-h> :YcmCompleter FixIt<CR>
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
+"let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
 """"""""""""""""""""
 "" a.vim settings
