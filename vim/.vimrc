@@ -33,7 +33,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-surround'
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'mattn/emmet-vim', { 'for': 'html' }
 
 "" snippet plugins
@@ -43,7 +42,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 "" YouCompleteMe
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer'}
 "" *.c --> *.h
 Plug 'a.vim', { 'for': ['c', 'cpp'] }
 "" Auto Pairs
@@ -68,6 +67,8 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 "Plugin 'Cpp11-Syntax-Support'
 "" STL syntax
 Plug 'Mizuchi/STL-Syntax', { 'for': 'cpp' }
+"" commenter
+Plug 'scrooloose/nerdcommenter'
 call plug#end()
 
 " enable syntax highlighting
@@ -174,11 +175,6 @@ map <C-t> :NERDTree<Enter>
 """""""""""""""""""""""""
 let g:indent_guides_enable_on_vim_startup = 0
 
-"""""""""""""""""""""
-"" jedi-vim settings"
-"""""""""""""""""""""
-let g:jedi#completions_command = "<C-N>"
-
 """"""""""""""""""""
 "" snippet settings
 """"""""""""""""""""
@@ -206,6 +202,8 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 " Ycm Fixit feature
 nnoremap <c-h> :YcmCompleter FixIt<CR>
 "let g:ycm_collect_identifiers_from_comments_and_strings = 1
+" Used for choose python version
+"let g:ycm_python_binary_path = '/usr/bin/python3'
 
 """"""""""""""""""""
 "" a.vim settings
@@ -248,7 +246,7 @@ autocmd FileType python noremap <C-p> :call Flake8()<CR>
 " Fullstack for js, html, css
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 " c++ indent
-autocmd Filetype cpp setlocal ts=2 sts=2 sw=2
+"autocmd Filetype cpp setlocal ts=2 sts=2 sw=2
 
 " clang-format in vim
 map <C-K> :%pyf /usr/local/Cellar/clang-format/2016-03-08/share/clang/clang-format.py<cr>
