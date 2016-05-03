@@ -1,33 +1,6 @@
 " Section for `vim-plug`
 call plug#begin('~/.vim/bundle')
 
-" Make sure you use single quotes
-
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-"Plug 'junegunn/vim-easy-align'
-
-" Any valid git URL is allowed
-"Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-
-" Group dependencies, vim-snippets depends on ultisnips
-"Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
-" On-demand loading
-"Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-"Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-
-" Using a non-master branch
-"Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-
-" Plugin options
-"Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
-
-" Plugin outside ~/.vim/plugged with post-update hook
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-" Unmanaged plugin (manually installed and updated)
-"Plug '~/my-prototype-plugin'
-
 " Add plugins to &runtimepath
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
@@ -69,6 +42,13 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'Mizuchi/STL-Syntax', { 'for': 'cpp' }
 "" commenter
 Plug 'scrooloose/nerdcommenter'
+"" generate ycm extra configuration file form build system
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+Plug 'vim-ruby/vim-ruby'
+Plug 'Yggdroot/indentLine', { 'for': ['ruby', 'python'] }
+" Fuzzy finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " enable syntax highlighting
@@ -103,11 +83,13 @@ set cindent
 set cinoptions=(0
 " Allow tabs in Makefiles.
 autocmd FileType make,automake set noexpandtab shiftwidth=8 softtabstop=8
+autocmd FileType make,automake highlight clear ForbiddenWhitespace
 " Trailing whitespace and tabs are forbidden, so highlight them.
-highlight ForbiddenWhitespace ctermbg=red guibg=red
-match ForbiddenWhitespace /\s\+$\|\t/
+"highlight ForbiddenWhitespace ctermbg=red guibg=red
+autocmd Filetype c,cpp highlight ForbiddenWhitespace ctermbg=red guibg=red
+autocmd Filetype c,cpp match ForbiddenWhitespace /\s\+$\|\t/
 " Do not highlight spaces at the end of line while typing on that line.
-autocmd InsertEnter * match ForbiddenWhitespace /\t\|\s\+\%#\@<!$/
+autocmd Filetype c,cpp autocmd InsertEnter * match ForbiddenWhitespace /\t\|\s\+\%#\@<!$/
 
 " python.vim options
 " enable all Python syntax highlighting features
@@ -243,10 +225,18 @@ autocmd FileType python noremap <C-p> :call Flake8()<CR>
 """"""""""""""""""""""""
 "au BufNewFile,BufRead *.cpp set syntax=cpp11
 
+""""""""""""""""""""""""""""""""
+" using seoul-light colorscheme"
+""""""""""""""""""""""""""""""""
+let g:seoul256_background = 255
+colorscheme seoul256
+
 " Fullstack for js, html, css
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
+" Indent style for ruby
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 " c++ indent
 "autocmd Filetype cpp setlocal ts=2 sts=2 sw=2
 
 " clang-format in vim
-map <C-K> :%pyf /usr/local/Cellar/clang-format/2016-03-08/share/clang/clang-format.py<cr>
+map <C-K> :%pyf /usr/local/Cellar/clang-format/2016-03-29/share/clang/clang-format.py<cr>
