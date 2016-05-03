@@ -5,8 +5,6 @@ set guifont=Fira\ Mono:h14
 " window size
 set lines=50 columns=90
 
-" gray-light colorscheme
-colorscheme lucius
 " line highlight
 set cursorline
 " disable scrollbar
