@@ -146,3 +146,7 @@ eval `/usr/libexec/path_helper -s`
 export GOPATH=$HOME/Development/golang_work
 
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Use `ag` replace fzf's default `find`
+export FZF_DEFAULT_COMMAND='ag -g ""'
