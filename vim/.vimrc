@@ -86,10 +86,10 @@ autocmd FileType make,automake set noexpandtab shiftwidth=8 softtabstop=8
 autocmd FileType make,automake highlight clear ForbiddenWhitespace
 " Trailing whitespace and tabs are forbidden, so highlight them.
 "highlight ForbiddenWhitespace ctermbg=red guibg=red
-autocmd Filetype c,cpp highlight ForbiddenWhitespace ctermbg=red guibg=red
-autocmd Filetype c,cpp match ForbiddenWhitespace /\s\+$\|\t/
+autocmd Filetype c,cpp,ruby highlight ForbiddenWhitespace ctermbg=red guibg=red
+autocmd Filetype c,cpp,ruby match ForbiddenWhitespace /\s\+$\|\t/
 " Do not highlight spaces at the end of line while typing on that line.
-autocmd Filetype c,cpp autocmd InsertEnter * match ForbiddenWhitespace /\t\|\s\+\%#\@<!$/
+autocmd Filetype c,cpp,ruby autocmd InsertEnter * match ForbiddenWhitespace /\t\|\s\+\%#\@<!$/
 
 " python.vim options
 " enable all Python syntax highlighting features
@@ -240,3 +240,15 @@ autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 
 " clang-format in vim
 map <C-K> :%pyf /usr/local/Cellar/clang-format/2016-03-29/share/clang/clang-format.py<cr>
+" statusline modified derived from jamessan's
+set statusline=   " clear the statusline for when vimrc is reloaded
+"set statusline+=[%n]\                      " buffer number
+set statusline+=%f\                          " file name
+set statusline+=%h%m%r%w                     " flags
+set statusline+=%=                           " right align
+set statusline+=%{strlen(&ft)?&ft:'none'}\ \|   " filetype
+set statusline+=\ %{strlen(&fenc)?&fenc:&enc}\ \| " encoding
+set statusline+=\ %{&fileformat}              " file format
+"set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  " highlight
+"set statusline+=%b,0x%-8B\                   " current char
+set statusline+=%-14.(%8l,%c%V%)\ %<%P        " offset
