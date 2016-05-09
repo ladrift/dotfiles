@@ -52,7 +52,7 @@ ZSH_THEME="nicoulaj"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew brew-cask atom pip python ipython sudo z zsh-syntax-highlighting tmux)
+plugins=(brew brew-cask atom pip python ipython sudo z zsh-syntax-highlighting tmux gem)
 
 # User configuration
 
@@ -85,6 +85,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Default editor
+export EDITOR='vim'
 
 # Vi mode
 bindkey -v
@@ -150,3 +153,5 @@ test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_in
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # Use `ag` replace fzf's default `find`
 export FZF_DEFAULT_COMMAND='ag -g ""'
+# rbenv init for shell
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
