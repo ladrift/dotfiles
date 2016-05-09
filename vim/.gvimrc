@@ -1,7 +1,7 @@
 " font size
-set guifont=Fira\ Mono:h14
+"set guifont=Fira\ Mono:h14
 "set guifont=monoOne:h14
-"set guifont=CamingoCode:h13
+set guifont=CamingoCode:h13
 " window size
 set lines=50 columns=90
 
