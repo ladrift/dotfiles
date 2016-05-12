@@ -49,6 +49,9 @@ Plug 'Yggdroot/indentLine', { 'for': ['ruby', 'python'] }
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
+" Add `end` wisely
+Plug 'tpope/vim-endwise'
+
 call plug#end()
 
 " enable syntax highlighting
@@ -73,6 +76,8 @@ set softtabstop=4
 set ignorecase
 " set for highligt searched text
 set hlsearch
+" show command on left-down corner
+set showcmd
 
 "" FFmpeg Code Formatting
 " indentation rules for FFmpeg: 4 spaces, no tabs
