@@ -239,7 +239,7 @@ colorscheme seoul256
 " Fullstack for js, html, css
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 " Indent style for ruby
-autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 norelativenumber
 " c++ indent
 "autocmd Filetype cpp setlocal ts=2 sts=2 sw=2
 
