@@ -53,6 +53,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-endwise'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'altercation/vim-colors-solarized'
+Plug 'tpope/vim-dispatch'
 
 call plug#end()
 
@@ -195,6 +196,7 @@ nnoremap <c-h> :YcmCompleter FixIt<CR>
 "let g:ycm_collect_identifiers_from_comments_and_strings = 1
 " Used for choose python version
 "let g:ycm_python_binary_path = '/usr/bin/python3'
+let g:ycm_key_detailed_diagnostics = ''
 
 """"""""""""""""""""
 "" a.vim settings
@@ -235,7 +237,7 @@ autocmd FileType python noremap <C-p> :call Flake8()<CR>
 "au BufNewFile,BufRead *.cpp set syntax=cpp11
 
 "" vim-solarized colorscheme"
-colorscheme solarized 
+colorscheme solarized
 
 " Fullstack for js, html, css
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
@@ -246,6 +248,7 @@ autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 norelativenumber
 
 " clang-format in vim
 map <C-K> :%pyf /usr/local/Cellar/clang-format/2016-03-29/share/clang/clang-format.py<cr>
+
 " statusline modified derived from jamessan's
 set statusline=   " clear the statusline for when vimrc is reloaded
 "set statusline+=[%n]\                      " buffer number
@@ -269,3 +272,8 @@ let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
+let g:go_dispatch_enabled = 1
+
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
