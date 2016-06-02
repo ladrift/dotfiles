@@ -51,13 +51,16 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 " Add `end` wisely
 Plug 'tpope/vim-endwise'
+Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
 " enable syntax highlighting
 syntax enable
 " show line numbers with relative number
-set number relativenumber
+set number
+set relativenumber
 " set tabs to have 4 spaces
 set tabstop=4
 " indent when moving to the next line while writing code
@@ -186,6 +189,7 @@ let g:ycm_global_ycm_extra_conf = '/Users/ladrift/.vim/bundle/YouCompleteMe/thir
 nnoremap <c-l> :YcmDiags<CR>
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_show_diagnostics_ui = 0
 " Ycm Fixit feature
 nnoremap <c-h> :YcmCompleter FixIt<CR>
 "let g:ycm_collect_identifiers_from_comments_and_strings = 1
@@ -230,11 +234,8 @@ autocmd FileType python noremap <C-p> :call Flake8()<CR>
 """"""""""""""""""""""""
 "au BufNewFile,BufRead *.cpp set syntax=cpp11
 
-""""""""""""""""""""""""""""""""
-" using seoul-light colorscheme"
-""""""""""""""""""""""""""""""""
-let g:seoul256_background = 255
-colorscheme seoul256
+"" vim-solarized colorscheme"
+colorscheme solarized 
 
 " Fullstack for js, html, css
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
@@ -257,3 +258,14 @@ set statusline+=\ %{&fileformat}              " file format
 "set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  " highlight
 "set statusline+=%b,0x%-8B\                   " current char
 set statusline+=%-14.(%8l,%c%V%)\ %<%P        " offset
+
+""""""""""""""""""""
+" vim-go settings"""
+""""""""""""""""""""
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
