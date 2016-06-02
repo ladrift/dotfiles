@@ -4,7 +4,15 @@
 #	user = ladrift
 #	email = cxfyzy@gmail.com
 [core]
-	editor = vim
+    editor = vim
 [user]
-	name = "Ziyi Yan"
-	email = cxfyzy@gmail.com
+    name = "Ziyi Yan"
+    email = cxfyzy@gmail.com
+[alias]
+    co = checkout
+    ci = commit
+    st = status
+    br = branch
+    hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+    type = cat-file -t
+    dump = cat-file -p
