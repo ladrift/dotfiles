@@ -147,6 +147,7 @@ eval `/usr/libexec/path_helper -s`
 
 ## add Golang path
 export GOPATH=$HOME/Development/golang_work
+export PATH=$PATH:$GOPATH/bin
 
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
 
