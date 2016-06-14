@@ -30,8 +30,6 @@ Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'vim-latex/vim-latex', { 'for': 'tex' }
 "" fcitx-vim-osx: Restore input method state
 Plug 'CodeFalling/fcitx-vim-osx'
-"" seoul256 colorscheme
-Plug 'junegunn/seoul256.vim'
 "" vim-javascript
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 "" c++ enhanced highlight
@@ -52,7 +50,6 @@ Plug 'junegunn/fzf.vim'
 " Add `end` wisely
 Plug 'tpope/vim-endwise'
 Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-dispatch'
 
 call plug#end()
@@ -62,8 +59,6 @@ syntax enable
 " show line numbers with relative number
 set number
 set relativenumber
-" set tabs to have 4 spaces
-set tabstop=4
 " indent when moving to the next line while writing code
 set autoindent
 " expand tabs into spaces
@@ -82,6 +77,8 @@ set ignorecase
 set hlsearch
 " show command on left-down corner
 set showcmd
+" background setting
+set background=light
 
 "" FFmpeg Code Formatting
 " indentation rules for FFmpeg: 4 spaces, no tabs
@@ -91,7 +88,7 @@ set softtabstop=4
 set cindent
 set cinoptions=(0
 " Allow tabs in Makefiles.
-autocmd FileType make,automake set noexpandtab shiftwidth=8 softtabstop=8
+autocmd FileType make,automake setlocal noexpandtab shiftwidth=8 softtabstop=8
 autocmd FileType make,automake highlight clear ForbiddenWhitespace
 " Trailing whitespace and tabs are forbidden, so highlight them.
 "highlight ForbiddenWhitespace ctermbg=red guibg=red
@@ -236,13 +233,12 @@ autocmd FileType python noremap <C-p> :call Flake8()<CR>
 """"""""""""""""""""""""
 "au BufNewFile,BufRead *.cpp set syntax=cpp11
 
-"" vim-solarized colorscheme"
-colorscheme solarized
-
 " Fullstack for js, html, css
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 " Indent style for ruby
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 norelativenumber
+" Using tabs in go
+autocmd FileType go setlocal norelativenumber noexpandtab shiftwidth=8 softtabstop=8
 " c++ indent
 "autocmd Filetype cpp setlocal ts=2 sts=2 sw=2
 
