@@ -52,7 +52,7 @@ ZSH_THEME="nicoulaj"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew brew-cask atom pip python ipython sudo z zsh-syntax-highlighting tmux gem)
+plugins=(brew brew-cask atom pip python ipython sudo z zsh-syntax-highlighting tmux gem go)
 
 # User configuration
 
@@ -146,7 +146,7 @@ alias go_c="clang -std=c99 -xc '-' $go_libs $go_flags"
 eval `/usr/libexec/path_helper -s`
 
 ## add Golang path
-export GOPATH=$HOME/Development/golang_work
+export GOPATH=$HOME/Development/gowork
 export PATH=$PATH:$GOPATH/bin
 
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
