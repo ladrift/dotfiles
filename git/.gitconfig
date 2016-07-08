@@ -5,6 +5,7 @@
 #	email = cxfyzy@gmail.com
 [core]
     editor = vim
+    autocrlf = input
 [user]
     name = "Ziyi Yan"
     email = cxfyzy@gmail.com

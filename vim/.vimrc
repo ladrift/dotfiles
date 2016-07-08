@@ -238,7 +238,7 @@ autocmd Filetype html setlocal ts=2 sts=2 sw=2
 " Indent style for ruby
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 norelativenumber
 " Using tabs in go
-autocmd FileType go setlocal norelativenumber noexpandtab shiftwidth=8 softtabstop=8
+autocmd FileType go setlocal noexpandtab shiftwidth=8 softtabstop=8
 " c++ indent
 "autocmd Filetype cpp setlocal ts=2 sts=2 sw=2
 
@@ -267,6 +267,7 @@ let g:go_highlight_structs = 1
 let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:go_highlight_trailing_whitespace_error = 0
 let g:go_fmt_command = "goimports"
 let g:go_dispatch_enabled = 1
 
