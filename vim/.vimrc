@@ -41,16 +41,18 @@ Plug 'Mizuchi/STL-Syntax', { 'for': 'cpp' }
 "" commenter
 Plug 'scrooloose/nerdcommenter'
 "" generate ycm extra configuration file form build system
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-Plug 'vim-ruby/vim-ruby'
+Plug 'rdnetto/YCM-Generator', { 'for': ['c', 'cpp'], 'branch': 'stable' }
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'Yggdroot/indentLine', { 'for': ['ruby', 'python'] }
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 " Add `end` wisely
-Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'tpope/vim-dispatch'
+Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
+Plug 'junegunn/rainbow_parentheses.vim', { 'for': ['racket', 'scheme'] }
 
 call plug#end()
 
@@ -137,20 +139,20 @@ vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
 "" tmux settings "
 """"""""""""""""""
 " reshape cursor in tmux according to mode
-if has('nvim')
-    let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-else
-    if exists('$ITERM_PROFILE')
-        if exists('$TMUX')
-            let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-            let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-        else
-            let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-            let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-        endif
-    endif
-endif
+"if has('nvim')
+    "let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+    "let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+"else
+    "if exists('$ITERM_PROFILE')
+        "if exists('$TMUX')
+            "let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+            "let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+        "else
+            "let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+            "let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+        "endif
+    "endif
+"endif
 
 
 """""""""""""""""""""
@@ -243,7 +245,7 @@ autocmd FileType go setlocal noexpandtab shiftwidth=8 softtabstop=8
 "autocmd Filetype cpp setlocal ts=2 sts=2 sw=2
 
 " clang-format in vim
-map <C-K> :%pyf /usr/local/Cellar/clang-format/2016-03-29/share/clang/clang-format.py<cr>
+autocmd Filetype c,cpp map <C-K> :%pyf /usr/local/Cellar/clang-format/2016-03-29/share/clang/clang-format.py<cr>
 
 " statusline modified derived from jamessan's
 set statusline=   " clear the statusline for when vimrc is reloaded
@@ -274,3 +276,14 @@ let g:go_dispatch_enabled = 1
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+
+"""""""""""""""""""""""""""
+" rainbow_parentheses.vim""
+"""""""""""""""""""""""""""
+let g:rainbow#max_level = 16
+let g:rainbow#pairs = [['(', ')'], ['[', ']']]
+
+augroup rainbow_lisp
+    autocmd!
+    autocmd FileType lisp,clojure,scheme,racket RainbowParentheses
+augroup END
