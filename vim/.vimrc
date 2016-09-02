@@ -80,7 +80,7 @@ set hlsearch
 " show command on left-down corner
 set showcmd
 " background setting
-set background=light
+set background=dark
 
 "" FFmpeg Code Formatting
 " indentation rules for FFmpeg: 4 spaces, no tabs
@@ -139,20 +139,20 @@ vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
 "" tmux settings "
 """"""""""""""""""
 " reshape cursor in tmux according to mode
-"if has('nvim')
-    "let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-    "let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-"else
-    "if exists('$ITERM_PROFILE')
-        "if exists('$TMUX')
-            "let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-            "let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-        "else
-            "let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-            "let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-        "endif
-    "endif
-"endif
+if has('nvim')
+    let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+else
+    if exists('$ITERM_PROFILE')
+        if exists('$TMUX')
+            let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+            let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+        else
+            let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+            let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+        endif
+    endif
+endif
 
 
 """""""""""""""""""""
