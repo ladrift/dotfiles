@@ -5,14 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="nicoulaj"
-#ZSH_THEME="mrtazz"
-#ZSH_THEME="mh"
-#ZSH_THEME="daveverwer"
-#ZSH_THEME="ladrift"
-#ZSH_THEME="gitsome"
-#ZSH_THEME="risto"
-#ZSH_THEME="robbyrussell"
+ZSH_THEME="ladrift"  # my custom theme from pure
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -156,3 +149,6 @@ test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_in
 export FZF_DEFAULT_COMMAND='ag -g ""'
 # rbenv init for shell
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# locale settings
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
