@@ -73,7 +73,7 @@ precmd() {
     vcs_info # Get version control info before we start outputting stuff
     #print -P "\n$(repo_information) %F{yellow}$(cmd_exec_time)%f"
     # LADRIFT: Delete command executing time for some bugs when using with tmux.
-    print -P "\n$(repo_information) %F{yellow}%f"
+    print -P "$(repo_information) %F{yellow}%f"
 }
 
 # Define prompts

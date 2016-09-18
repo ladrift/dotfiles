@@ -53,6 +53,8 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'tpope/vim-dispatch'
 Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
 Plug 'junegunn/rainbow_parentheses.vim', { 'for': ['racket', 'scheme'] }
+" Colorscheme
+Plug 'w0ng/vim-hybrid'
 
 call plug#end()
 
@@ -245,7 +247,7 @@ autocmd FileType go setlocal noexpandtab shiftwidth=8 softtabstop=8
 "autocmd Filetype cpp setlocal ts=2 sts=2 sw=2
 
 " clang-format in vim
-autocmd Filetype c,cpp map <C-K> :%pyf /usr/local/Cellar/clang-format/2016-03-29/share/clang/clang-format.py<cr>
+autocmd Filetype c,cpp map <C-K> :%pyf /usr/local/Cellar/clang-format/2016-08-03/share/clang/clang-format.py<cr>
 
 " statusline modified derived from jamessan's
 set statusline=   " clear the statusline for when vimrc is reloaded
@@ -287,3 +289,11 @@ augroup rainbow_lisp
     autocmd!
     autocmd FileType lisp,clojure,scheme,racket RainbowParentheses
 augroup END
+
+"""""""""""""""""""""""""""
+" hybrid colorscheme""""""
+"""""""""""""""""""""""""""
+set background=dark
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette."
+colorscheme hybrid
