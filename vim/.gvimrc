@@ -1,5 +1,5 @@
 " font size
-set guifont=Source\ Code\ Pro:h14
+set guifont=Consolas:h14
 " window size
 set lines=50 columns=90
 
@@ -12,3 +12,6 @@ set guioptions -=R
 set guioptions -=r
 " Disable all blinking:
 :set guicursor+=a:blinkon0
+
+"line height
+set linespace=2

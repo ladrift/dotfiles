@@ -40,8 +40,6 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'Mizuchi/STL-Syntax', { 'for': 'cpp' }
 "" commenter
 Plug 'scrooloose/nerdcommenter'
-"" generate ycm extra configuration file form build system
-Plug 'rdnetto/YCM-Generator', { 'for': ['c', 'cpp'], 'branch': 'stable' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'Yggdroot/indentLine', { 'for': ['ruby', 'python'] }
 " Fuzzy finder
@@ -243,6 +241,8 @@ autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 norelativenumber
 " Using tabs in go
 autocmd FileType go setlocal noexpandtab shiftwidth=8 softtabstop=8
+" Protocol buffer
+autocmd Filetype proto setlocal ts=2 sts=2 sw=2
 " c++ indent
 "autocmd Filetype cpp setlocal ts=2 sts=2 sw=2
 
