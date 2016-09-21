@@ -11,7 +11,7 @@ set guioptions -=l
 set guioptions -=R
 set guioptions -=r
 " Disable all blinking:
-:set guicursor+=a:blinkon0
+set guicursor+=a:blinkon0
 
 "line height
 set linespace=2
