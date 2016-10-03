@@ -1,7 +1,7 @@
 " font size
-set guifont=Consolas:h14
+set guifont=Consolas:h12
 " window size
-set lines=50 columns=90
+set lines=20 columns=90
 
 " line highlight
 set cursorline
@@ -14,4 +14,4 @@ set guioptions -=r
 set guicursor+=a:blinkon0
 
 "line height
-set linespace=2
+set linespace=6
