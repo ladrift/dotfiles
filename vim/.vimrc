@@ -275,9 +275,10 @@ let g:go_highlight_trailing_whitespace_error = 0
 let g:go_fmt_command = "goimports"
 let g:go_dispatch_enabled = 1
 
-au FileType go nmap <Leader>ds <Plug>(go-def-split)
-au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+au FileType go nnoremap <Leader>ds <Plug>(go-def-split)
+au FileType go nnoremap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nnoremap <Leader>dt <Plug>(go-def-tab)
+au FileType go nnoremap <Leader>si :GoSameIds<CR>
 
 """""""""""""""""""""""""""
 " rainbow_parentheses.vim""
