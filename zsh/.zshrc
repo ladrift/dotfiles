@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="ladrift"  # my custom theme from pure
+ZSH_THEME="frisk-mod"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -45,7 +45,7 @@ ZSH_THEME="ladrift"  # my custom theme from pure
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew brew-cask atom pip python ipython sudo z zsh-syntax-highlighting tmux gem go)
+plugins=(brew brew-cask atom pip python ipython sudo z zsh-syntax-highlighting tmux gem go extract)
 
 # User configuration
 
@@ -108,28 +108,6 @@ alias pipup='pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip in
 # sublime cli
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
-## Useful function from Quora(http://www.quora.com/What-are-some-of-the-best-command-prompt-or-terminal-tricks)
-# Easily extract all compressed file types
-extract () {
-   if [ -f "$1" ] ; then
-       case $1 in
-           *.tar.bz2)   tar xvjf -- "$1"    ;;
-           *.tar.gz)    tar xvzf -- "$1"    ;;
-           *.bz2)       bunzip2 -- "$1"     ;;
-           *.rar)       unrar x -- "$1"     ;;
-           *.gz)        gunzip -- "$1"      ;;
-           *.tar)       tar xvf -- "$1"     ;;
-           *.tbz2)      tar xvjf -- "$1"    ;;
-           *.tgz)       tar xvzf -- "$1"    ;;
-           *.zip)       unzip -- "$1"       ;;
-           *.Z)         uncompress -- "$1"  ;;
-           *.7z)        7z x -- "$1"        ;;
-           *)           echo "don't know how to extract '$1'..." ;;
-       esac
-   else
-       echo "'$1' is not a valid file"
-   fi
-}
 ## Compile C code from command line
 go_libs="-lm"
 go_flags="-g -Wall -include allheads.h -O3"
