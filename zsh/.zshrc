@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="frisk-mod"
+ZSH_THEME="steeef-mod"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -45,12 +45,15 @@ ZSH_THEME="frisk-mod"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew brew-cask atom pip python ipython sudo z zsh-syntax-highlighting tmux gem go extract)
+plugins=(brew brew-cask atom pip python ipython sudo z zsh-syntax-highlighting tmux gem go extract rust)
 
 # User configuration
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export MANPATH="/usr/local/man:$MANPATH"
+
+# Add custom functions and completions folders 
+fpath=($ZSH/custom/functions $ZSH/custom/completions $fpath)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -130,3 +133,6 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # locale settings
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+# Add Cargo bin to PATH
+source $HOME/.cargo/env
