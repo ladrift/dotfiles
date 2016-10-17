@@ -50,9 +50,11 @@ Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'tpope/vim-dispatch'
 Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
-Plug 'junegunn/rainbow_parentheses.vim', { 'for': ['racket', 'scheme'] }
+Plug 'junegunn/rainbow_parentheses.vim', { 'for': ['lisp', 'racket', 'scheme'] }
 " Colorscheme
 Plug 'w0ng/vim-hybrid'
+" rust syntax highlight
+Plug 'rust-lang/rust.vim', { 'for': 'rust', 'do': 'cargo install rustfmt' }
 
 call plug#end()
 
@@ -298,3 +300,9 @@ set background=dark
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette."
 colorscheme hybrid
+
+"""""""""""""""""""""""""""
+" rust.vim settings """""""
+"""""""""""""""""""""""""""
+let g:rustfmt_autosave = 1
+let g:rustfmt_fail_silently = 1
