@@ -55,6 +55,8 @@ Plug 'junegunn/rainbow_parentheses.vim', { 'for': ['lisp', 'racket', 'scheme'] }
 Plug 'w0ng/vim-hybrid'
 " rust syntax highlight
 Plug 'rust-lang/rust.vim', { 'for': 'rust', 'do': 'cargo install rustfmt' }
+Plug 'skywind3000/asyncrun.vim'
+Plug 'tpope/vim-repeat'
 
 call plug#end()
 
@@ -188,7 +190,7 @@ autocmd! FileType cpp :UltiSnipsAddFiletypes cpp
 """"""""""""""""""""
 let g:ycm_global_ycm_extra_conf = '/Users/ladrift/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 " show diagnostic list when <c-l>
-nnoremap <c-l> :YcmDiags<CR>
+au Filetype cpp nnoremap <c-l> :YcmDiags<CR>
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_show_diagnostics_ui = 0
@@ -240,7 +242,7 @@ autocmd FileType python noremap <C-p> :call Flake8()<CR>
 " Fullstack for js, html, css
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 " Indent style for ruby
-autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 norelativenumber
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 " Using tabs in go
 autocmd FileType go setlocal noexpandtab shiftwidth=8 softtabstop=8
 " Protocol buffer
@@ -304,5 +306,5 @@ colorscheme hybrid
 """""""""""""""""""""""""""
 " rust.vim settings """""""
 """""""""""""""""""""""""""
-let g:rustfmt_autosave = 1
-let g:rustfmt_fail_silently = 1
+"let g:rustfmt_autosave = 1
+"let g:rustfmt_fail_silently = 1
