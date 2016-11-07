@@ -241,8 +241,8 @@ autocmd FileType python noremap <C-p> :call Flake8()<CR>
 
 " Fullstack for js, html, css
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
-" Indent style for ruby
-autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+" Indent style for ruby & eruby
+autocmd Filetype ruby,eruby setlocal ts=2 sts=2 sw=2
 " Using tabs in go
 autocmd FileType go setlocal noexpandtab shiftwidth=8 softtabstop=8
 " Protocol buffer
