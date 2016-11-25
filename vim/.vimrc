@@ -32,12 +32,6 @@ Plug 'vim-latex/vim-latex', { 'for': 'tex' }
 Plug 'CodeFalling/fcitx-vim-osx'
 "" vim-javascript
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-"" c++ enhanced highlight
-"Plug 'octol/vim-cpp-enhanced-highlight'
-"" cpp11 syntax
-"Plugin 'Cpp11-Syntax-Support'
-"" STL syntax
-Plug 'Mizuchi/STL-Syntax', { 'for': 'cpp' }
 "" commenter
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
@@ -53,6 +47,7 @@ Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
 Plug 'junegunn/rainbow_parentheses.vim', { 'for': ['lisp', 'racket', 'scheme'] }
 " Colorscheme
 Plug 'w0ng/vim-hybrid'
+Plug 'jpo/vim-railscasts-theme'
 " rust syntax highlight
 Plug 'rust-lang/rust.vim', { 'for': 'rust', 'do': 'cargo install rustfmt' }
 Plug 'skywind3000/asyncrun.vim'
@@ -88,10 +83,10 @@ set background=dark
 
 "" FFmpeg Code Formatting
 " indentation rules for FFmpeg: 4 spaces, no tabs
-set expandtab
-set shiftwidth=4
-set softtabstop=4
-set cindent
+"set expandtab
+"set shiftwidth=4
+"set softtabstop=4
+"set cindent
 set cinoptions=(0
 " Allow tabs in Makefiles.
 autocmd FileType make,automake setlocal noexpandtab shiftwidth=8 softtabstop=8
@@ -296,12 +291,9 @@ augroup rainbow_lisp
 augroup END
 
 """""""""""""""""""""""""""
-" hybrid colorscheme""""""
+" railscasts colorscheme""""""
 """""""""""""""""""""""""""
-set background=dark
-let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette."
-colorscheme hybrid
+colorscheme railscasts
 
 """""""""""""""""""""""""""
 " rust.vim settings """""""
