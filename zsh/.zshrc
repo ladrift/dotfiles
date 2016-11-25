@@ -45,7 +45,7 @@ ZSH_THEME="odin-mod"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew brew-cask atom pip python ipython sudo z zsh-syntax-highlighting tmux gem go extract rust)
+plugins=(brew brew-cask atom pip python ipython sudo z zsh-syntax-highlighting tmux gem go extract rust zsh-autosuggestions)
 
 # User configuration
 
